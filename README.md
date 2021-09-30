@@ -1,23 +1,23 @@
 >**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
 
-### Date created
+# Project: Analyze Bikeshare Usage Data
+
+## Date created
 * 2021-09-30
 
-### Project: Analyze Bikeshare Usage Data
-
-### Description
+## Description
 Development of a python script to analyze sample bikeshare data from 3 major US cities:
 * Chicago
 * New York
 * Washington
 
-### Files used
+## Files used
 * bikeshare_2.py
 * chicago.csv
 * new_york_city.csv
 * washington.csv
 
-### Credits (reference only)
+## Credits (reference only)
 * Udacity course content (PDSND)
 * https://docs.python.org/3/
 * https://pandas.pydata.org/docs/index.html
