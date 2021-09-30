@@ -11,6 +11,18 @@ Development of a python script to analyze sample bikeshare data from 3 major US 
 * New York
 * Washington
 
+### Script overview
+The script is broken down into the following modules:
+* main()
+* get_filters()
+* load_data(city, month, day)
+* time_stats(df, city, month, day)
+* station_stats(df)
+* trip_duration_stats(df)
+* user_stats(df)
+* r_data(df, city, month, day)
+* ds_stats(city)
+
 ## Files used
 * bikeshare_2.py
 * chicago.csv
