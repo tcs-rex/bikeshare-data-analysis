@@ -6,6 +6,7 @@ import numpy as np
 CITY_DATA = { 'CHI': 'chicago.csv',
               'NYC': 'new_york_city.csv',
               'WSH': 'washington.csv' }
+
 # months and days options for user input
 months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE']
 days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
@@ -24,56 +25,57 @@ def get_filters():
 
     print('\nHello! Let\'s explore some US bikeshare data!')
 
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    city = input('\nPlease choose city (enter "CHI" for Chicago, "NYC" for New York City, "WSH" for Washington, or "q" to quit the program): ').upper()
+    while True:
 
-    while city != 'Q':
-        if (city == 'CHI' or city == 'NYC' or city == 'WSH'):
-            break
+        # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+        city = input('\nPlease choose city (enter "CHI" for Chicago, "NYC" for New York City, "WSH" for Washington, or "q" to quit the program): ').upper()
+
+        while city != 'Q':
+            if (city == 'CHI' or city == 'NYC' or city == 'WSH'):
+                break
+            else:
+                print('\nSorry, "{}" is an invalid entry. '.format(city))
+                city = input('\nPlease enter a valid city id (CHI, NYC, or WSH) or enter "q" to quit: ').upper()
+
+        # If user did not choose to quit...get user input for month (all, january, february, ... , june)
+        if city == 'Q':
+            month = 'Q'
+            day = 'Q'
         else:
-            print('\nSorry, "{}" is an invalid entry. '.format(city))
-            city = input('\nPlease enter a valid city id (CHI, NYC, or WSH) or enter "q" to quit: ').upper()
+            month = input('\nPlease choose month (all, January, February, ... , June) or "q" to quit program: ').upper()
 
-    # If user did not choose to quit...get user input for month (all, january, february, ... , june)
-    if city == 'Q':
-        month = 'Q'
-        day = 'Q'
-    else:
-        month = input('\nPlease choose month (all, January, February, ... , June) or "q" to quit program: ').upper()
+            while month != 'Q':
+                if (month == 'ALL' or month == 'JANUARY' or month == 'FEBRUARY' or month == 'MARCH' or month == 'APRIL' or month == 'MAY' or month == 'JUNE'):
+                    break
+                else:
+                    print('\nSorry, "{}" is an invalid entry. '.format(month))
+                    month = input('\nPlease enter a valid month (January to June inclusive) or enter "q" to quit: ').upper()
 
-        while month != 'Q':
-            if (month == 'ALL' or month == 'JANUARY' or month == 'FEBRUARY' or month == 'MARCH' or month == 'APRIL' or month == 'MAY' or month == 'JUNE'):
-                break
-            else:
-                print('\nSorry, "{}" is an invalid entry. '.format(month))
-                month = input('\nPlease enter a valid month (January to June inclusive) or enter "q" to quit: ').upper()
+        # If user did not quit, get user input for day of week (all, monday, tuesday, ... sunday)
+        if month == 'Q':
+            day = 'Q'
+        else:
+            day = input('\nPlease choose day of interest (all, Monday, Tuesday, ..., Sunday) or "q" to quit program\n: ').upper()
 
-    # If user did not quit, get user input for day of week (all, monday, tuesday, ... sunday)
-    if month == 'Q':
-        day = 'Q'
-    else:
-        day = input('\nPlease choose day of interest (all, Monday, Tuesday, ..., Sunday) or "q" to quit program\n: ').upper()
+            while day != 'Q':
+                if (day == 'ALL' or day == 'MONDAY' or day == 'TUESDAY' or day == 'WEDNESDAY' or day == 'THURSDAY' or day == 'FRIDAY' or day == 'SATURDAY' or day == 'SUNDAY'):
+                    break
+                else:
+                    print('\nSorry, "{}" is an invalid entry. '.format(day))
+                    day = input('\nPlease enter a valid month (January to June inclusive) or enter "q" to quit\n: ').upper()
 
-        while day != 'Q':
-            if (day == 'ALL' or day == 'MONDAY' or day == 'TUESDAY' or day == 'WEDNESDAY' or day == 'THURSDAY' or day == 'FRIDAY' or day == 'SATURDAY' or day == 'SUNDAY'):
-                break
-            else:
-                print('\nSorry, "{}" is an invalid entry. '.format(day))
-                day = input('\nPlease enter a valid month (January to June inclusive) or enter "q" to quit\n: ').upper()
-
-    print('\n')
-
-    # display user inputs to be used for analysis
-    print('-'*7, ' User Inputs Specified ', '-'*7)
-
-    if (month != 'Q' and day != 'Q'):
-        print('\nCity: ', city, '\nMonth (or ALL): ', month, '\nDay (or ALL): ', day, '\n')
-        print('Statistics will print below...','\n')
-        time.sleep(2)
-    else:
-        print('\nProgram Quit Successfully.\n')
-
-    return city, month, day
+        # display user inputs to be used for analysis or re-enter inputs
+        if (month != 'Q' and day != 'Q'):
+            print('-'*7, ' User Inputs Specified ', '-'*7)
+            print('\nCity: ', city, '\nMonth (or ALL): ', month, '\nDay (or ALL): ', day, '\n')
+            g2g = input('\nEnter "y" to proceed with these inputs, or enter any other key to choose new inputs: \n').lower()
+            if g2g == 'y':
+                print('Statistics will print below...','\n')
+                time.sleep(2)
+                return city, month, day
+        else:
+            print('\nProgram Quit Successfully.\n')
+            return city, month, day
 
 
 def load_data(city, month, day):
