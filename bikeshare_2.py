@@ -8,7 +8,7 @@ CITY_DATA = { 'CHI': 'chicago.csv',
               'WSH': 'washington.csv' }
 
 # months and days options for user input
-months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE']
+months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN']
 days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY']
 
 def get_filters():
@@ -42,10 +42,10 @@ def get_filters():
             month = 'Q'
             day = 'Q'
         else:
-            month = input('\nPlease choose month (all, January, February, ... , June) or "q" to quit program: ').upper()
+            month = input('\nPlease choose month (all, Jan, Feb, Mar,... , Jun) or "q" to quit program: ').upper()
 
             while month != 'Q':
-                if (month == 'ALL' or month == 'JANUARY' or month == 'FEBRUARY' or month == 'MARCH' or month == 'APRIL' or month == 'MAY' or month == 'JUNE'):
+                if (month == 'ALL' or month == 'JAN' or month == 'FEB' or month == 'MAR' or month == 'APR' or month == 'MAY' or month == 'JUN'):
                     break
                 else:
                     print('\nSorry, "{}" is an invalid entry. '.format(month))
@@ -323,10 +323,10 @@ def r_data(df, city, month, day):
 
         # proceed with filtered dataset (note gaps in row index)
         if opt.lower() == 'f':
-            start_time = time.time()
             win_start = 0
             win_end = 5
             while True:
+                start_time = time.time()
                 print(df.iloc[win_start: win_end])
                 print('\n')
                 print("This took %s seconds." % (time.time() - start_time))
@@ -361,6 +361,7 @@ def r_data(df, city, month, day):
 
 def ds_stats(city):
     """ds_stats: Shows general city dataset info/statistics"""
+
     print('-'*12, '  Dataset Info  ', '-'*12, '\n')
     start_time = time.time()
 
@@ -378,6 +379,7 @@ def ds_stats(city):
 
 def main():
     """Main function: calls functions, checks user inputs, passes inputs/args"""
+
     while True:
         city, month, day = get_filters()
 
