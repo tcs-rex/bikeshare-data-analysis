@@ -9,6 +9,14 @@ Development of a python script to analyze sample bikeshare data from 3 major US 
 * New York
 * Washington
 
+Run script via shell: bikeshare_2.py
+
+### Requirements/Dependencies
+* Python
+* Pandas
+* Numpy
+* Time
+
 ### Script overview
 The script is broken down into the following modules:
 * main()
