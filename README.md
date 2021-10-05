@@ -1,5 +1,3 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
-
 # Project: Analyze Bikeshare Usage Data
 
 ## Date created
@@ -10,6 +8,14 @@ Development of a python script to analyze sample bikeshare data from 3 major US 
 * Chicago
 * New York
 * Washington
+
+Run script via shell: bikeshare_2.py
+
+### Requirements/Dependencies
+* Python
+* Pandas
+* Numpy
+* Time
 
 ### Script overview
 The script is broken down into the following modules:
