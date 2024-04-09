@@ -18,7 +18,7 @@ Run script via shell: bikeshare_2.py
 * Time
 
 ### Script overview
-The script is broken down into the following modules:
+The script is broken down into the following functions:
 * main()
 * get_filters()
 * load_data(city, month, day)
